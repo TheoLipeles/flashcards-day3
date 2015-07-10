@@ -11,6 +11,10 @@
   .category-button.active {
     background: gainsboro; }
 
+
+/*.flash-card:hover {
+  border: 2px solid black !important;
+}*/
 .flash-card {
   width: 60%;
   height: 400px;

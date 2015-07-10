@@ -1,11 +1,11 @@
-app.controller('MainController', function ($scope, FlashCardsFactory, ScoreFactory) {
+app.controller('MainController', function($scope, FlashCardsFactory, ScoreFactory) {
 
     $scope.statistics = '../statistics.html';
 
-    FlashCardsFactory.getFlashCards().then(function(data){
+    FlashCardsFactory.getFlashCards().then(function(data) {
         $scope.flashCards = data;
     });
-    
+
     $scope.categories = [
         "MongoDB",
         "Express",
@@ -13,18 +13,18 @@ app.controller('MainController', function ($scope, FlashCardsFactory, ScoreFacto
         "Node"
     ];
 
-    $scope.getCategoryCards = function(category){
-    	FlashCardsFactory.getFlashCards(category).then(function(data){
-    		$scope.flashCards = data;
-    	});
+    $scope.getCategoryCards = function(category) {
+        FlashCardsFactory.getFlashCards(category).then(function(data) {
+            $scope.flashCards = data;
+        });
     };
 
-	$scope.answerQuestion = function (answer, flashCard) {
-		if (!flashCard.answered) {
-			flashCard.answered = true;
-			flashCard.answeredCorrectly = answer.correct;
-			if (answer.correct) ScoreFactory.correct++;
-			else ScoreFactory.incorrect++;
-		}
-	}
+    // $scope.answerQuestion = function(answer, flashCard) {
+    //     if (!flashCard.answered) {
+    //         flashCard.answered = true;
+    //         flashCard.answeredCorrectly = answer.correct;
+    //         if (answer.correct) ScoreFactory.correct++;
+    //         else ScoreFactory.incorrect++;
+    //     }
+    // };
 });
